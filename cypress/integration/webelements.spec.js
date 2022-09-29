@@ -40,4 +40,19 @@ describe("Testes com elementos web", () => {
         cy.get('form > :nth-child(1) > .text-muted')
             .should("have.text", "TextField:")
     })
+
+    it("Validação checkBox", () => {
+
+        //Valida o primeiro
+        cy.get("[name='radioGroup1']").first().check().should("be.checked")
+
+        //Valida o terceiro checkado
+        cy.get("[name='radioGroup1']").check("Radio 3").should("be.checked")
+        //Valida o último não checkado
+        cy.get("[name='radioGroup1']").last().should("not.be.checked")
+
+        //Valida que são 4 checkbox
+        cy.get("[name='radioGroup1']").should("have.length", 4)
+
+    })
 })
