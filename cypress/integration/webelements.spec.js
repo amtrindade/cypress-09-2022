@@ -18,5 +18,26 @@ describe("Testes com elementos web", () => {
             .type("Antonio")
             .should("have.value", "Antonio")
 
+        //Type utilizando o force: true
+        cy.get(`[name='txtbox2']`)
+            .type("Antonio", {force: true})
+            .should("have.value", "Antonio")
+
+    })
+
+    it("Deveria validar textfields habilitados", () => {
+
+        cy.get("input[name='txtbox1']")
+            .should("be.enabled")
+
+        cy.get(`[name='txtbox2']`)
+            .should('be.disabled')
+            .should('not.be.enabled')
+    })
+
+    it("Deveria validar o texto de um label", () =>{
+
+        cy.get('form > :nth-child(1) > .text-muted')
+            .should("have.text", "TextField:")
     })
 })
