@@ -72,4 +72,17 @@ describe("Testes com elementos web", () => {
         cy.get("[name='chkbox']").uncheck()
         cy.get("[name='chkbox']").should("not.be.checked")
     })
+
+    it.only("Valida seleção em um select", () => {
+        
+        cy.get("[name='dropdownlist']")
+            .select("Item 2")
+            .should("have.value", "item2")
+
+        cy.get("[name='dropdownlist'] option")
+            .first()
+            .should("have.value", "item1")
+
+        cy.get("[name='dropdownlist'] option").should("have.length", 10)
+    })
 })
