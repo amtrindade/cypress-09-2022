@@ -73,7 +73,7 @@ describe("Testes com elementos web", () => {
         cy.get("[name='chkbox']").should("not.be.checked")
     })
 
-    it.only("Valida seleção em um select", () => {
+    it("Valida seleção em um select", () => {
         
         cy.get("[name='dropdownlist']")
             .select("Item 2")
@@ -84,5 +84,15 @@ describe("Testes com elementos web", () => {
             .should("have.value", "item1")
 
         cy.get("[name='dropdownlist'] option").should("have.length", 10)
+
+        //TODO varrer o componente validando os 10 existentes
+    })
+
+    it("Valida seleção multipla em select", () => {
+
+        cy.get("[name='multiselectdropdown']")
+            .select(["Item 1", "Item 4", "Item 6"])
+
+        //TODO identificar que são esses 3 valores selecionados
     })
 })
