@@ -20,7 +20,7 @@ describe("Testes com elementos web", () => {
 
         //Type utilizando o force: true
         cy.get(`[name='txtbox2']`)
-            .type("Antonio", {force: true})
+            .type("Antonio", {force: true} )
             .should("have.value", "Antonio")
 
     })
@@ -41,7 +41,7 @@ describe("Testes com elementos web", () => {
             .should("have.text", "TextField:")
     })
 
-    it("Validação checkBox", () => {
+    it("Validação Radio Group", () => {
 
         //Valida o primeiro
         cy.get("[name='radioGroup1']").first().check().should("be.checked")
@@ -51,8 +51,25 @@ describe("Testes com elementos web", () => {
         //Valida o último não checkado
         cy.get("[name='radioGroup1']").last().should("not.be.checked")
 
-        //Valida que são 4 checkbox
+        //Valida que são 4 radios
         cy.get("[name='radioGroup1']").should("have.length", 4)
 
+    })
+
+    it("Validação Check Box", () => {
+
+        cy.get("[name='chkbox']").should("have.length", 4)
+
+        cy.get("[name='chkbox']")
+            .check("Check 2")
+            .should("be.checked")
+            .uncheck("Check 2")
+            .should("not.be.checked")
+
+        cy.get("[name='chkbox']").check( {multiple:true} )
+        cy.get("[name='chkbox']").first().should("be.checked")
+
+        cy.get("[name='chkbox']").uncheck()
+        cy.get("[name='chkbox']").should("not.be.checked")
     })
 })
