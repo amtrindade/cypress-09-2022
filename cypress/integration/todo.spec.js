@@ -40,6 +40,32 @@ describe("Testes with Todo List", () => {
                 .should("be.checked")
         })
 
+        it.only("Should validate complete task filter", () => {
+            //check na nova tarefa
+            cy.get(".todo-list").contains(`${newTask}`).parent()
+                .find("input").check()
+
+            //clica no filtro Completed
+            cy.get('.filters').contains("Completed").click()
+
+            //validações tamanho e item da lista
+            cy.get(".todo-list li").should("have.length", 1)
+            cy.get(".todo-list li").should("have.text", `${newTask}`)
+        })
+
+        it("Should delete new task", () => {
+            cy.get(".todo-list").contains(`${newTask}`).parent()
+                .find("input").check()
+
+            cy.get(".todo-list").contains(`${newTask}`).parent()
+                .find("button").click( {force:true} )
+
+            //validações tamanho e item da lista
+            cy.get(".todo-list li").should("have.length", 2)
+            cy.get(".todo-list li").should("not.have.text", `${newTask}`)
+
+        } )
+
     })
 
 })
