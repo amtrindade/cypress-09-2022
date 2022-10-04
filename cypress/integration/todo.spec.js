@@ -40,7 +40,7 @@ describe("Testes with Todo List", () => {
                 .should("be.checked")
         })
 
-        it.only("Should validate complete task filter", () => {
+        it("Should validate complete task filter", () => {
             //check na nova tarefa
             cy.get(".todo-list").contains(`${newTask}`).parent()
                 .find("input").check()
@@ -64,7 +64,7 @@ describe("Testes with Todo List", () => {
             cy.get(".todo-list li").should("have.length", 2)
             cy.get(".todo-list li").should("not.have.text", `${newTask}`)
 
-        } )
+        })
 
     })
 
