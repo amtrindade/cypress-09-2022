@@ -1,3 +1,6 @@
 {
-    "baseUrl": "http://antoniotrindade.com.br/treinoautomacao"
+    "baseUrl": "http://antoniotrindade.com.br/treinoautomacao",
+    "defaultCommandTimeout": 5000,
+    "screenshotOnRunFailure": true,
+    "screenshotsFolder": "cypress/screenshots"
 }
