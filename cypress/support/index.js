@@ -18,3 +18,11 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+//Adiciona xpath a execução do cypress
+require('cypress-xpath');
+
+//Caso seja necessário alterar a orden dos seletores no playground
+Cypress.SelectorPlayground.defaults({
+    selectorPriority: ['id', 'class', 'tag', 'attributes', 'data-test', 'nth-child'],
+})

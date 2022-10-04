@@ -11,7 +11,9 @@ describe("Testes with Todo List", () => {
 
         cy.get(".todo-list li").should("have.length", 2)
 
-        cy.get('[data-test="new-todo"]').type(`${newTask}{enter}`)
+        //cy.get('[data-test="new-todo"]').type(`${newTask}{enter}`)
+        cy.xpath("//input[@class='new-todo']").type(`${newTask}{enter}`)
+
 
         cy.get(".todo-list li").should("have.length", 3)
         cy.get(".todo-list li").last().should("have.text", `${newTask}`)
