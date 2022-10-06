@@ -9,7 +9,7 @@ describe("Login tests", () => {
     })
 
     it("Should be login", () => {
-        cy.login('trindade', 'cypress', '123456')
+        cy.login('trindade', 'cypress', 'mudarsenha')
         cy.get(loc.MAIN.IMG_MENU).should("to.be.visible")
     })
 
