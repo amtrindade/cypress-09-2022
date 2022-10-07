@@ -14,7 +14,8 @@ const locators = {
         BTN_NEW_LOCAL: '#addServiceLocal',
         TF_SEARCH: '#genericFilter',
         BTN_SEARCH: '#serviceLocalList_doSearch',
-        FN_XP_FIND_LOCAL: description => `//td[contains(text(),'${description}')]`
+        FN_XP_FIND_LOCAL: description => `//td[contains(text(),'${description}')]`,
+        FN_XP_FIND_LOCAL_EDIT: description => `//td[contains(text(),'${description}')][1]/..//a`
 
     },
     DETAIL_LOCAL: {
