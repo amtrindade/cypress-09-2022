@@ -6,7 +6,7 @@ describe("Work with locals", () => {
 
     beforeEach(() => {
         cy.visit("https://center.umov.me/")
-        cy.login('trindade', 'cypress', 'a')
+        cy.login('trindade', 'cypress', 'mudarsenha')
         cy.get(loc.MAIN.MENU_LOCALS).click()
     })
 
