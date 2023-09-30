@@ -6,7 +6,7 @@ describe("Work with locals", () => {
 
     beforeEach(() => {
         cy.visit("https://center.umov.me/")
-        cy.login('trindade', 'cypress', 'mudarsenha')
+        cy.login('trindade', 'cypress', '123456')
         cy.get(loc.MAIN.MENU_LOCALS).click()
     })
 
@@ -29,7 +29,7 @@ describe("Work with locals", () => {
 
     })
 
-    it.only("Edit local",() => {
+    it("Edit local",() => {
         //Insere o local
         const descriptionLocal = 'Bourbon ' + Math.floor(Math.random() * 1001);
         const descriptionCorporateName = 'Shopping ' + Math.floor(Math.random() * 1001);
